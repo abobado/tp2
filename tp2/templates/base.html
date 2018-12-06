@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static "estilos.css" %}">
+<title>Controle de Inventário</title>
+</head>
+<body>
+<a id="logout" href="logout">Sair</a>   
+<div class="container">
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+<a class="navbar-brand" href="/produtos">
+Inventário
+</a>
+</div>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="/produtos">Listagem</a></li>
+</ul>
+</div>
+</nav>
+{% block content %}
+  
+{% endblock %}
+<footer class="footer">
+<p>© Emanoel e Rodolfo.</p>
+</footer>
+</div>
+</body>
+</html>

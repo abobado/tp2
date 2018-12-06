@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!-- <h1>Inserir Produto </h1>
+  <input id="nome"> 
+  <input id="preco">
+  <input id="descricao">
+  <input id="quantidade">
+ 
+  <button id="enviar"> Enviar </button>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+   var csrftoken = Cookies.get('csrftoken')
+   function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+}) 
+  
+  $('#enviar').click(function(){
+  $.ajax({
+          url: "inserir",
+         type: 'post',
+         data: { nome:$('#nome').val(),
+                preco:$('#preco').val(),
+                descricao:$('#descricao').val(),
+                quantidade:$('#quantidade').val()
+                
+                }
+          })
+   
+    
+    })
+  </script> -->
+
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button>Enviar</button>
+  </form>
+
+{% endblock %}

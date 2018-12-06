@@ -1,0 +1,55 @@
+{% load cache %}
+{% extends "base.html" %}
+{% load static %}
+{% cache 600 content %}
+{% block content %}
+  <h1>Lista de Produtos </h1>
+ 
+  
+    <table class= "table">
+          
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th colspan="2"></th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for produto in object_list %}
+        <tr>
+          
+          <td>{{ produto.nome }}</td>
+          <td>{{ produto.preco }}</td>
+          <td>{{ produto.descricao }}</td>
+          <td>{{ produto.quantidade }}</td>
+            
+          <td><a href="{% url "editar" produto.id %}">
+             <span class="glyphicon glyphicon-pencil"></span></a></td>
+          <td>
+              <form method="POST" action="{% url "excluir" produto.id %}">
+                  {% csrf_token %}
+                  <button>
+                        <span class="glyphicon glyphicon-trash">
+                  </button>
+              </form>
+            
+          </td>
+
+          <td><a href="{% url "detalhar" produto.id %}"><span class="glyphicon glyphicon-search"></span></a></td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    
+    </table>
+    <a id="inserir" href="{% url "inserir" %}" class="add"><span class="glyphicon glyphicon-plus"></a>
+  </section>
+  
+    
+ 
+{% endblock %}
+{% endcache %}

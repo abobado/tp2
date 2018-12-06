@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Detalhes do produto: {{object.nome }} </h1>
+    <ul>
+    <li>
+    <b>Valor:</b> R$ {{object.preco }}
+    </li>
+    <li>
+    <b>Descrição:</b> {{object.descricao }}
+    </li>
+    <li>
+    <b>Quantidade em estoque:</b> {{object.quantidade }}
+    </li>
+    </ul>
+</div>
+{% endblock %}
